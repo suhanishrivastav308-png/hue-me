@@ -52,7 +52,7 @@ st.markdown('<p class="main-title">Hue & Me</p>', unsafe_allow_html=True)
 st.markdown('<p class="tagline">Because every you has a perfect hue ✨</p>', unsafe_allow_html=True)
 
 # -------------------------
-# Sidebar Navigation
+# Sidebar
 # -------------------------
 
 menu = st.sidebar.radio(
@@ -68,7 +68,7 @@ menu = st.sidebar.radio(
 )
 
 # -------------------------
-# Intro
+# INTRO
 # -------------------------
 
 if menu == "Intro":
@@ -91,44 +91,90 @@ Because the **right hue doesn’t just change your outfit — it changes how you
     )
 
 # -------------------------
-# Body Type
+# BODY TYPE
 # -------------------------
 
 elif menu == "Body Type":
 
-    st.markdown('<p class="section-title">Discover Your Body Shape</p>', unsafe_allow_html=True)
-
-    st.write("Follow these 3 easy steps:")
-
-    st.markdown("""
-**Step 1:** Measure your bust, waist, and hips  
-
-**Step 2:** Look at the proportions — is your waist defined or not?  
-
-**Step 3:** Compare your measurements
-""")
-
-    st.image(
-        "https://i.pinimg.com/736x/52/1f/7a/521f7a8c9a40b8b99d6b6a46cde1e74c.jpg",
-        caption="Common Body Shapes",
-        use_container_width=True
-    )
+    st.markdown('<p class="section-title">Find Your Body Type</p>', unsafe_allow_html=True)
 
     st.write("""
-Common body types include:
+Every body is unique, but most shapes fall into a few common categories.  
+Knowing your body type helps you choose clothes that **fit better, flatter your shape, and boost confidence.**
+""")
 
-• Rectangle  
-• Inverted Triangle  
-• Oval  
-• Pear  
-• Hourglass  
-• Apple
+    st.markdown("---")
 
-Understanding your body shape helps you choose clothing that **enhances your natural proportions.**
+    st.subheader("1️⃣ Hourglass")
+
+    st.markdown("""
+**Criteria**
+- Bust and hips are almost the same width
+- Waist is clearly defined and smaller
+- Curves are balanced
+
+**Style Tip**
+Fitted dresses, wrap tops, and high-waist bottoms highlight your natural shape.
+""")
+
+    st.markdown("---")
+
+    st.subheader("2️⃣ Pear (Triangle)")
+
+    st.markdown("""
+**Criteria**
+- Hips are wider than shoulders
+- Waist is defined
+- Upper body is narrower
+
+**Style Tip**
+Statement tops, structured shoulders, and darker bottoms balance the body.
+""")
+
+    st.markdown("---")
+
+    st.subheader("3️⃣ Apple (Round)")
+
+    st.markdown("""
+**Criteria**
+- Upper body is broader
+- Waist is less defined
+- Weight is more around the stomach area
+
+**Style Tip**
+Flowy tops, V-necks, and A-line dresses create a balanced silhouette.
+""")
+
+    st.markdown("---")
+
+    st.subheader("4️⃣ Rectangle (Straight)")
+
+    st.markdown("""
+**Criteria**
+- Bust, waist, and hips are almost equal
+- Minimal curves
+- Straight body structure
+
+**Style Tip**
+Layering, belts, and peplum styles help create curves.
+""")
+
+    st.markdown("---")
+
+    st.subheader("5️⃣ Inverted Triangle")
+
+    st.markdown("""
+**Criteria**
+- Shoulders are broader than hips
+- Narrow lower body
+- Athletic upper frame
+
+**Style Tip**
+Wide-leg pants, A-line skirts, and minimal shoulder detail balance proportions.
 """)
 
 # -------------------------
-# Skin Undertone
+# SKIN UNDERTONE
 # -------------------------
 
 elif menu == "Skin Undertone":
@@ -175,7 +221,7 @@ Burns then tans → **Neutral**
     )
 
 # -------------------------
-# Packages
+# PACKAGES
 # -------------------------
 
 elif menu == "Packages":
@@ -220,7 +266,7 @@ Full fashion analysis including color palette, body type, personal style report,
     st.info("💡 Price available on request")
 
 # -------------------------
-# Appointment Booking
+# APPOINTMENT
 # -------------------------
 
 elif menu == "Appointment Booking":
@@ -234,7 +280,6 @@ elif menu == "Appointment Booking":
     query = st.text_area("Your Query")
 
     photo = st.camera_input("Take a Photo")
-
     upload = st.file_uploader("Or Upload Image", type=["jpg", "png", "jpeg"])
 
     if st.button("Submit Appointment"):
@@ -245,7 +290,7 @@ elif menu == "Appointment Booking":
             st.error("Please fill required details.")
 
 # -------------------------
-# About Us
+# ABOUT US
 # -------------------------
 
 elif menu == "About Us":
