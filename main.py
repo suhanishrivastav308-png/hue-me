@@ -1,7 +1,4 @@
 import streamlit as st
-from PIL import Image
-import requests
-from io import BytesIO
 
 st.set_page_config(
     page_title="Hue & Me",
@@ -10,7 +7,7 @@ st.set_page_config(
 )
 
 # -------------------------
-# Custom Styling
+# Styling
 # -------------------------
 
 st.markdown("""
@@ -55,7 +52,7 @@ st.markdown('<p class="main-title">Hue & Me</p>', unsafe_allow_html=True)
 st.markdown('<p class="tagline">Because every you has a perfect hue ✨</p>', unsafe_allow_html=True)
 
 # -------------------------
-# Navigation
+# Sidebar Navigation
 # -------------------------
 
 menu = st.sidebar.radio(
@@ -71,7 +68,7 @@ menu = st.sidebar.radio(
 )
 
 # -------------------------
-# INTRO
+# Intro
 # -------------------------
 
 if menu == "Intro":
@@ -88,13 +85,13 @@ From understanding your **personal color palette** to building a style that refl
 Because the **right hue doesn’t just change your outfit — it changes how you feel.**
 """)
 
-    image_url = "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
-    response = requests.get(image_url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img, use_container_width=True)
+    st.image(
+        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+        use_container_width=True
+    )
 
 # -------------------------
-# BODY TYPE
+# Body Type
 # -------------------------
 
 elif menu == "Body Type":
@@ -105,16 +102,17 @@ elif menu == "Body Type":
 
     st.markdown("""
 **Step 1:** Measure your bust, waist, and hips  
+
 **Step 2:** Look at the proportions — is your waist defined or not?  
+
 **Step 3:** Compare your measurements
 """)
 
-    body_img = "https://i.pinimg.com/736x/52/1f/7a/521f7a8c9a40b8b99d6b6a46cde1e74c.jpg"
-
-    response = requests.get(body_img)
-    img = Image.open(BytesIO(response.content))
-
-    st.image(img, caption="Common Body Shapes", use_container_width=True)
+    st.image(
+        "https://i.pinimg.com/736x/52/1f/7a/521f7a8c9a40b8b99d6b6a46cde1e74c.jpg",
+        caption="Common Body Shapes",
+        use_container_width=True
+    )
 
     st.write("""
 Common body types include:
@@ -130,7 +128,7 @@ Understanding your body shape helps you choose clothing that **enhances your nat
 """)
 
 # -------------------------
-# SKIN UNDERTONE
+# Skin Undertone
 # -------------------------
 
 elif menu == "Skin Undertone":
@@ -144,11 +142,9 @@ elif menu == "Skin Undertone":
     with col1:
         st.subheader("01 — Vein Test")
         st.write("""
-Look at your wrist veins.
+Blue / Purple veins → **Cool Undertone**
 
-Blue / Purple → **Cool Undertone**
-
-Green → **Warm Undertone**
+Green veins → **Warm Undertone**
 
 Mix → **Neutral Undertone**
 """)
@@ -173,13 +169,13 @@ Tans easily → **Warm**
 Burns then tans → **Neutral**
 """)
 
-    img_url = "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-    response = requests.get(img_url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img, use_container_width=True)
+    st.image(
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+        use_container_width=True
+    )
 
 # -------------------------
-# PACKAGES
+# Packages
 # -------------------------
 
 elif menu == "Packages":
@@ -224,7 +220,7 @@ Full fashion analysis including color palette, body type, personal style report,
     st.info("💡 Price available on request")
 
 # -------------------------
-# APPOINTMENT
+# Appointment Booking
 # -------------------------
 
 elif menu == "Appointment Booking":
@@ -239,7 +235,7 @@ elif menu == "Appointment Booking":
 
     photo = st.camera_input("Take a Photo")
 
-    upload = st.file_uploader("Or Upload Image", type=["jpg","png","jpeg"])
+    upload = st.file_uploader("Or Upload Image", type=["jpg", "png", "jpeg"])
 
     if st.button("Submit Appointment"):
 
@@ -249,7 +245,7 @@ elif menu == "Appointment Booking":
             st.error("Please fill required details.")
 
 # -------------------------
-# ABOUT US
+# About Us
 # -------------------------
 
 elif menu == "About Us":
